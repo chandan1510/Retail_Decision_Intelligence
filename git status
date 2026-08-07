@@ -1,0 +1,8 @@
+[33mde0d667[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Complete data cleaning and preprocessing pipeline
+[33mc31d9ee[m Investigated missing values after cleaning
+[33m2d92108[m Separated and removed cancelled transactions from sales dataset
+[33m21fe065[m Completed data quality assessment and documented missing values and duplicates
+[33m72dd6ac[m Completed dataset structure analysis
+[33mced9e17[m Created data understanding notebook and loaded retail dataset
+[33m92a7df0[m Added business problem statement and project objectives
+[33m38c2925[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Initial commit
