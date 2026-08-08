@@ -14,6 +14,12 @@ The objective is to help business stakeholders understand sales performance, pro
 
 ---
 
+## 📋 Business Problem
+
+The detailed business problem and analytical objectives are documented separately in:
+
+[Business Problem](Business_Problem.md)
+
 ## 🎯 Business Objectives
 
 This project focuses on answering key business questions:
@@ -49,17 +55,23 @@ This project focuses on answering key business questions:
 ```text
 Raw Retail Dataset
         ↓
-Data Cleaning & Feature Engineering
+Data Understanding & Data Quality Assessment
         ↓
-SQL Business Analysis
+Data Cleaning
+        ↓
+Feature Engineering
         ↓
 Exploratory Data Analysis
         ↓
-Product Performance Analysis
+SQL Business Analysis
         ↓
-RFM Customer Segmentation
+Product & Pareto Analysis
         ↓
-Sales Revenue Forecasting
+Market Basket Analysis
+        ↓
+Customer RFM Segmentation
+        ↓
+Sales Forecasting
         ↓
 Power BI Dashboard
         ↓
@@ -83,9 +95,15 @@ The preprocessing workflow included:
 The processed datasets are stored inside:
 
 data/
-├── raw/
+├── raw
 └── cleaned/
 
+
+### Data Quality
+
+A separate data quality report documents the major data validation and cleaning checks performed during preprocessing.
+
+[View Data Quality Report](reports/data_quality_report.md)
 
 # 🗄️2. SQL Business Analysis
 
@@ -128,10 +146,16 @@ The notebooks cover:
 The notebooks are organized sequentially in:
 
 notebook/
-├── 01_...
-├── 02_...
-├── ...
-└── 09_...
+├── 01_Data_Understanding.ipynb
+├── 02_Data_Cleaning.ipynb
+├── 03_Feature_Engineering.ipynb
+|── 04_EDA.ipynb
+├── 05_RFM.ipynb
+|── 06_Market_Basket_Analysis.ipynb
+|── 07_Pareto_Analysis.ipynb
+|── 08_Sales_Forecasting.ipynb
+└── 09_SQL_Buisness_Analysis.ipynb
+
 
 
 # 📦 4. Product Analysis
@@ -212,49 +236,68 @@ The forecasting output includes:
 The forecast results were incorporated into Power BI to compare historical revenue with expected future revenue.
 
 
-# 📊 7. Power BI Dashboard
+# 📊 Power BI Dashboard
 
-The final Power BI dashboard contains three analytical pages.
+The Power BI dashboard provides an interactive business view of retail sales performance, product contribution, customer behavior, and revenue forecasting.
 
-Page 1 — Executive Overview
+The dashboard contains three analytical pages.
 
-The executive dashboard provides an overall view of business performance.
+## Page 1 — Executive Overview
 
-- KPIs
+Provides a high-level view of overall business performance.
+
+### KPIs
+
 - Total Revenue
 - Total Orders
 - Total Customers
 - Unique Products
 - Items Sold
 - Average Order Value
-- Visualizations
+
+### Visualizations
+
 - Monthly Revenue Trend
 - Revenue by Country
 - Top 10 Products by Revenue
 - Top 10 Products by Quantity Sold
-- Filters
+
+### Filters
+
 - Year
 - Quarter
 - Country
 
-Page 2 — Product Performance
+### Dashboard Preview
 
-This page focuses on product-level performance.
+![Executive Overview](reports/dashboard/executive_overview.png)
 
-- Visualizations
+---
+
+## Page 2 — Product Performance
+
+Focuses on product-level sales and revenue contribution.
+
+### Visualizations
+
 - Top 10 Products by Revenue
 - Top 10 Products by Quantity Sold
 - Product Volume vs Revenue
 - ABC Product Classification
-- Revenue Contribution by Product
+- Top Products — Revenue Contribution
 
-This page helps identify high-performing products and understand the relationship between product volume and revenue.
+### Dashboard Preview
 
-Page 3 — Customer & Sales Forecast
+![Product Performance](reports/dashboard/product_performance.png)
 
-This page combines customer analytics with revenue forecasting.
+---
 
-- Customer Analysis
+## Page 3 — Customer & Sales Forecast
+
+Combines customer segmentation with revenue forecasting.
+
+### Customer Analytics
+
 - RFM Customer Count
 - Average Recency
 - Average Frequency
@@ -262,11 +305,40 @@ This page combines customer analytics with revenue forecasting.
 - RFM Score Distribution
 - Recency vs Monetary Value
 - Monetary Value by RFM Score
-- Forecasting
+
+### Forecasting
+
 - Actual vs Forecast Revenue
 - Forecasted Revenue
 - Forecast Confidence Range
 - Average Forecast Revenue
+
+### Dashboard Preview
+
+![Customer & Sales Forecast](reports/dashboard/customer_forecast.png)
+
+---
+
+### Power BI File
+
+The complete interactive Power BI dashboard is available here:
+
+`powerbi/Retail_Decision_Intelligence_Dashboard.pbix`
+
+
+## 📦 Analytical Outputs
+
+The project generates several analytical datasets:
+
+| Output | Purpose |
+|---|---|
+| `sales_data.csv` | Cleaned transactional sales data |
+| `sales_features.csv` | Feature-engineered sales dataset |
+| `customer_data.csv` | Customer-level analytical data |
+| `customer_rfm.csv` | RFM customer segmentation |
+| `sales_forecast.csv` | Revenue forecasting results |
+| `abc_inventory.csv` | ABC product classification |
+| `association_rules.csv` | Market basket association rules |
 
 
 #💡 Key Business Insights
@@ -286,19 +358,37 @@ The analysis provides several useful business perspectives:
 Retail_Decision_Intelligence/
 │
 ├── data/
-│   ├── raw/
-│   └── cleaned/
+│   ├── cleaned/
+│   │   ├── abc_inventory.csv
+│   │   ├── association_rules.csv
+│   │   ├── customer_data.csv
+│   │   ├── customer_rfm.csv
+│   │   ├── sales_data.csv
+│   │   ├── sales_features.csv
+│   │   └── sales_forecast.csv
+│   └── raw/
+│       └── online_retail.xlsx
 │
-├── notebook/
-│   ├── 01_...
-│   ├── 02_...
-│   ├── ...
-│   └── 09_...
+├── notebooks/
+│   ├── 01_Data_Understanding...
+│   ├── 02_Data_Cleaning...
+│   ├── 03_Feature_Engineering...
+│   ├── 04_EDA.ipynb
+│   ├── 05_RFM.ipynb
+│   ├── 06_Market_Basket...
+│   ├── 07_Pareto_Analysis...
+│   ├── 08_Sales_Forecasting...
+│   └── 09_SQL_Business_Analysis...
 │
 ├── powerbi/
 │   └── Retail_Decision_Intelligence_Dashboard.pbix
 │
-├── report/
+├── reports/
+│   └── data_quality_report.md
+|   └── Dashboard/
+|       ├── executive_overview.png
+|       ├── product_performance.png
+|       └── customer_forecast.png
 │
 ├── sql/
 │   ├── database.sql
@@ -306,9 +396,11 @@ Retail_Decision_Intelligence/
 │
 ├── src/
 │
+├── venv/
 ├── .gitignore
-├── requirements.txt
-└── README.md
+├── Business_Problem.md
+├── README.md
+└── requirements.txt
 
 
 # ▶️ How to Run the Project
