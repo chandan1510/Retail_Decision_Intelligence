@@ -50,8 +50,7 @@ This project focuses on answering key business questions:
 
 ---
 
-# 🔄 Project Workflow
-
+## 🔄 Project Workflow
 ```text
 Raw Retail Dataset
         ↓
@@ -76,8 +75,8 @@ Sales Forecasting
 Power BI Dashboard
         ↓
 Business Insights
-
-
+```
+--- 
 # 📊 1. Data Preparation
 
 The original retail transaction dataset was cleaned and prepared for analysis.
@@ -93,13 +92,13 @@ The preprocessing workflow included:
 - Preparing analytical datasets for Power BI
 
 The processed datasets are stored inside:
-
+```text
 data/
 ├── raw
 └── cleaned/
+```
 
-
-### Data Quality
+## Data Quality
 
 A separate data quality report documents the major data validation and cleaning checks performed during preprocessing.
 
@@ -121,11 +120,11 @@ The SQL analysis covers:
 - Cancelled and returned transaction analysis
 
 SQL files:
-
+```text
 sql/
 ├── database.sql
 └── queries.sql
-
+```
 
 # 🐍 3. Python Exploratory Data Analysis
 
@@ -144,7 +143,7 @@ The notebooks cover:
 - Final analytical insights
 
 The notebooks are organized sequentially in:
-
+```text
 notebook/
 ├── 01_Data_Understanding.ipynb
 ├── 02_Data_Cleaning.ipynb
@@ -155,7 +154,7 @@ notebook/
 |── 07_Pareto_Analysis.ipynb
 |── 08_Sales_Forecasting.ipynb
 └── 09_SQL_Buisness_Analysis.ipynb
-
+```
 
 
 # 📦 4. Product Analysis
@@ -207,9 +206,9 @@ How much a customer spent.
 
 Each customer was assigned:
 
-- - R → Recency Score
-- - F → Frequency Score
-- - M → Monetary Score
+- R → Recency Score
+- F → Frequency Score
+- M → Monetary Score
 
 These were combined into an:
 
@@ -270,7 +269,7 @@ Provides a high-level view of overall business performance.
 
 ### Dashboard Preview
 
-![Executive Overview](reports/dashboard/executive_overview.png)
+![Executive Overview](reports/dashboard/customer_forecast.png)
 
 ---
 
@@ -326,7 +325,7 @@ The complete interactive Power BI dashboard is available here:
 `powerbi/Retail_Decision_Intelligence_Dashboard.pbix`
 
 
-## 📦 Analytical Outputs
+# 📦 Analytical Outputs
 
 The project generates several analytical datasets:
 
@@ -341,7 +340,7 @@ The project generates several analytical datasets:
 | `association_rules.csv` | Market basket association rules |
 
 
-#💡 Key Business Insights
+# 💡 Key Business Insights
 
 The analysis provides several useful business perspectives:
 
@@ -355,6 +354,7 @@ The analysis provides several useful business perspectives:
 
 
 # 📁 Project Structure
+```text
 Retail_Decision_Intelligence/
 │
 ├── data/
@@ -401,40 +401,48 @@ Retail_Decision_Intelligence/
 ├── Business_Problem.md
 ├── README.md
 └── requirements.txt
-
+```
 
 # ▶️ How to Run the Project
 1. Clone the repository
+```text
 git clone <your-github-repository-url>
 cd Retail_Decision_Intelligence
-2. Create a virtual environment
+```
+3. Create a virtual environment
+```text
 python -m venv venv
-3. Activate the environment
+```
+5. Activate the environment
 
 Windows:
-
+```text
 venv\Scripts\activate
+```
 4. Install dependencies
+```text
 pip install -r requirements.txt
-5. Run the notebooks
+```
+6. Run the notebooks
 
-Open the notebooks inside:
+   Open the notebooks inside:
 
-notebook/
+   notebook/
 
-and execute them in numerical order.
+   and execute them in numerical order.
 
 6. Run SQL analysis
 
-Import the cleaned dataset into MySQL and execute:
+   Import the cleaned dataset into MySQL and execute:
 
-sql/database.sql
-sql/queries.sql
+   sql/database.sql
+   sql/queries.sql
+
 7. Open the Power BI Dashboard
 
-Open:
+   Open:
 
-powerbi/Retail_Decision_Intelligence_Dashboard.pbix
+   powerbi/Retail_Decision_Intelligence_Dashboard.pbix
 
 
 # 📌 Skills Demonstrated
